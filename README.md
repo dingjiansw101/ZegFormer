@@ -1,6 +1,6 @@
 
 # Decoupling Zero-Shot Semantic Segmentation
-This is the official code for the ZegFormer.
+This is the official code for the [arxiv](https://arxiv.org/abs/2112.07910).
 
 ZegFormer is the first framework that decouple the zero-shot semantic segmentation into: 1) class-agnostic segmentation and 2) segment-level zero-shot classification
 
