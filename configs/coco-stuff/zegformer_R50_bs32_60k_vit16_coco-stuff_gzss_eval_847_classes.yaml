@@ -1,0 +1,18 @@
+# This model is trained by 156 classes on coco-stuff, but inferenced with 847 classes
+_BASE_: zegformer_R50_bs32_60k_vit16_coco-stuff.yaml
+MODEL:
+  META_ARCHITECTURE: "MaskFormer"
+  SEM_SEG_HEAD:
+    IGNORE_VALUE: 65535
+    NUM_CLASSES: 847
+    CLIP_PRETRAINED: "ViT-B/16"
+    CLIP_CLASSIFICATION: True
+    TRAIN_CLASS_JSON: "datasets/coco/coco_stuff/split/seen_classnames.json"
+    TEST_CLASS_JSON: "datasets/ADE20K_2021_17_01/ADE20K_847_pure_class.json"
+  MASK_FORMER:
+    GZERO_CALIBRATE: 0.0
+#    ENSEMBLING: True
+  PROMPT_ENSEMBLE_TYPE: "imagenet_select"
+DATASETS:
+  TRAIN: ("ade20k_full_sem_seg_freq_train",)
+  TEST: ("ade20k_full_sem_seg_freq_val_all",)

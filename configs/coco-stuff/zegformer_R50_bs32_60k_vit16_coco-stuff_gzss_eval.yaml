@@ -1,0 +1,15 @@
+_BASE_: zegformer_R50_bs32_60k_vit16_coco-stuff.yaml
+MODEL:
+  META_ARCHITECTURE: "MaskFormer"
+  SEM_SEG_HEAD:
+    NUM_CLASSES: 171
+    CLIP_PRETRAINED: "ViT-B/16"
+    CLIP_CLASSIFICATION: True
+    TRAIN_CLASS_JSON: "datasets/coco/coco_stuff/split/seen_classnames.json"
+    TEST_CLASS_JSON: "datasets/coco/coco_stuff/split/all_classnames.json"
+  MASK_FORMER:
+    GZERO_CALIBRATE: 0.1
+    ENSEMBLING: True
+  PROMPT_ENSEMBLE_TYPE: "imagenet_select"
+DATASETS:
+  TEST: ("coco_2017_val_all_stuff_sem_seg",)

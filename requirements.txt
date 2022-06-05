@@ -1,0 +1,7 @@
+scipy==1.7.0
+timm==0.4.12
+ftfy==6.0.1
+opencv-python==4.5.1.48
+setuptools==59.5.0
+pillow==8.2.0
+imageio==2.4.1
