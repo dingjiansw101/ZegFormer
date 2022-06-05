@@ -21,6 +21,33 @@ See [data preparation](datasets/README.md)
 For each model, there are two kinds of config files. The file without suffix "_gzss_eval" is used for training. The file with suffix "_gzss_eval" 
 is used for generalized zero-shot semantic segmentation evaluation.
 
+### Inference Demo with Pre-trained Models
+Download the checkpoints of ZegFormer from https://drive.google.com/drive/u/0/folders/1qcIe2mE1VRU1apihsao4XvANJgU5lYgm
+```
+python demo/demo.py --config-file configs/coco-stuff/zegformer_R101_bs32_60k_vit16_coco-stuff_gzss_eval.yaml \
+  --input input1.jpg input2.jpg \
+  [--other-options]
+  --opts MODEL.WEIGHTS /path/to/zegformer_R101_bs32_60k_vit16_coco-stuff.pth
+```
+The configs are made for training, therefore we need to specify `MODEL.WEIGHTS` to a model from model zoo for evaluation.
+This command will run the inference and show visualizations in an OpenCV window.
+
+For details of the command line arguments, see `demo.py -h` or look at its source code
+to understand its behavior. Some common arguments are:
+* To run __on your webcam__, replace `--input files` with `--webcam`.
+* To run __on a video__, replace `--input files` with `--video-input video.mp4`.
+* To run __on cpu__, add `MODEL.DEVICE cpu` after `--opts`.
+* To save outputs to a directory (for images) or a file (for webcam or video), use `--output`.
+
+[comment]: <> (#### Inference with more classnames)
+
+[comment]: <> (In the example above, the model is trained with __156 classes__, and inferenced with __171 classes__.)
+
+[comment]: <> (If you want to inference with more classes, try the config `zegformer_R101_bs32_60k_vit16_coco-stuff_gzss_eval_847_classes.yaml`. )
+
+[comment]: <> (You can also generate your customized json __TEST_CLASS_JSON with arbitrary class names__ by yourself.)
+
+
 ### Training & Evaluation in Command Line
 
 We provide two scripts in `train_net.py`, that are made to train all the configs provided in MaskFormer.
