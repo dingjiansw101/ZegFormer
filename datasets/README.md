@@ -95,7 +95,7 @@ python datasets/coco-stuff/prepare_coco_stuff_sem_seg_val_all.py
 ## Prepare data for [ADE20k-Full](https://groups.csail.mit.edu/vision/datasets/ADE20K/):
 Download the data of ADE20k-Full from https://groups.csail.mit.edu/vision/datasets/ADE20K/request_data/
 
-###Expected data structure 
+### Expected data structure 
 ```
 ADE20K_2021_17_01/
   images/
