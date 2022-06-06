@@ -78,7 +78,7 @@ To evaluate a model's performance, use
 ```
 For more options, see `./train_net.py -h`.
 
-The pre-trained checkpoints of ZegFormer can be downloaded from https://drive.google.com/drive/u/0/folders/1qcIe2mE1VRU1apihsao4XvANJgU5lYgm
+The pre-trained checkpoints of ZegFormer can be downloaded from https://drive.google.com/drive/folders/1qcIe2mE1VRU1apihsao4XvANJgU5lYgm?usp=sharing
 
 
 ## Acknowlegment
