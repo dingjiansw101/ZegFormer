@@ -192,11 +192,12 @@ if __name__ == "__main__":
 
     for name in ["val2017_seen", "train2017"]:
 
-        annotation_dir = dataset_dir / "annotations" / name
+        if name == "val2017_seen":
+            annotation_dir = dataset_dir / "annotations" / "val2017"
+        else:
+            annotation_dir = dataset_dir / "annotations" / name
         output_dir = dataset_dir / "annotations_detectron2" / name
         output_dir.mkdir(parents=True, exist_ok=True)
-
-        image_dir = dataset_dir / "images" / name
 
         file_list = []
         for file in tqdm.tqdm(list(annotation_dir.iterdir())):

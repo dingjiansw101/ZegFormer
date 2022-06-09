@@ -200,9 +200,9 @@ if __name__ == "__main__":
     output_dir = dataset_dir / "annotations_detectron2" / name
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    image_dir = dataset_dir / "images" / "val2017"
-    image_output_dir = dataset_dir / "images_detectron2" / name
-    image_output_dir.mkdir(parents=True, exist_ok=True)
+    # image_dir = dataset_dir / "images" / "val2017"
+    # image_output_dir = dataset_dir / "images_detectron2" / name
+    # image_output_dir.mkdir(parents=True, exist_ok=True)
 
     for file in tqdm.tqdm(list(annotation_dir.iterdir())):
         output_file = output_dir / file.name

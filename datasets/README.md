@@ -56,9 +56,6 @@ coco/
     annotations_detectron2/
       train2017/
       val2017_unseen/ 
-    images_detectron2/
-      train2017/
-      val2017_unseen/
 ```
 Get the COCO (2017) images from https://cocodataset.org/
 
