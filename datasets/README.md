@@ -77,7 +77,7 @@ Unzip `train2017.zip`, `val2017`, and `stuffthingmaps_trainval2017.zip`. Then pu
 Split the classes into seen and unseen for training and testing.
 
 ```
-python datasets/coco-stuff/create_cocostuff_class_names_json
+python datasets/coco-stuff/create_cocostuff_class_names_json.py
 ```
 Generate the labels for training and testing.
 
