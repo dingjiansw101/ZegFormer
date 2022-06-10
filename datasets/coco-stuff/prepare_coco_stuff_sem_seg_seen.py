@@ -169,6 +169,10 @@ COCO_CATEGORIES_Seen = [
     {'id': 180, 'name': 'window-other', 'supercategory': 'window', 'trainId': 154},
     {'id': 181, 'name': 'wood', 'supercategory': 'solid', 'trainId': 155}]
 
+id_map = {}
+for cat in COCO_CATEGORIES_Seen:
+    id_map[cat["id"]] = cat["trainId"]
+
 def worker(file_tuple):
     file, output_file = file_tuple
     lab = np.asarray(Image.open(file))
@@ -183,10 +187,6 @@ def worker(file_tuple):
 
 if __name__ == "__main__":
     dataset_dir = Path(os.getenv("DETECTRON2_DATASETS", "datasets")) / "coco" / "coco_stuff"
-
-    id_map = {}
-    for cat in COCO_CATEGORIES_Seen:
-        id_map[cat["id"]] = cat["trainId"]
 
     pool = Pool(32)
 
