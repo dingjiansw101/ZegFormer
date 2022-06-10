@@ -39,11 +39,11 @@ to understand its behavior. Some common arguments are:
 * To run __on cpu__, add `MODEL.DEVICE cpu` after `--opts`.
 * To save outputs to a directory (for images) or a file (for webcam or video), use `--output`.
 
-[comment]: <> (#### Inference with more classnames)
+#### Inference with more classnames
 
-[comment]: <> (In the example above, the model is trained with __156 classes__, and inferenced with __171 classes__.)
+In the example above, the model is trained with __156 classes__, and inferenced with __171 classes__.
 
-[comment]: <> (If you want to inference with more classes, try the config `zegformer_R101_bs32_60k_vit16_coco-stuff_gzss_eval_847_classes.yaml`. )
+If you want to inference with more classes, try the config `zegformer_R101_bs32_60k_vit16_coco-stuff_gzss_eval_847_classes.yaml`. 
 
 [comment]: <> (You can also generate your customized json __TEST_CLASS_JSON with arbitrary class names__ by yourself.)
 
