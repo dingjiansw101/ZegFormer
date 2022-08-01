@@ -2,4 +2,5 @@
 from . import (
     register_coco_stuff,
     register_ade20k_full_zero_freq,
+    register_pascal_voc,
 )

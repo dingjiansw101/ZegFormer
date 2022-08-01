@@ -1,0 +1,20 @@
+_BASE_: zegformer_R50_bs32_10k_vit16_voc2.yaml
+MODEL:
+  META_ARCHITECTURE: "MaskFormer"
+  SEM_SEG_HEAD:
+    NUM_CLASSES: 20
+    CLIP_CLASSIFICATION: True
+    TRAIN_CLASS_JSON: "datasets/VOCZERO/seen_classnames.json"
+    TEST_CLASS_JSON: "datasets/VOCZERO/all_classnames.json"
+  MASK_FORMER:
+#    GZERO_CALIBRATE: 0.7
+#    GZERO_CALIBRATE: 0.1
+#    ENSEMBLING: True
+    ENSEMBLING: False
+DATASETS:
+#  TRAIN: ("ade20k_full_sem_seg_train",)
+  TEST: ("pascal_voc_val_all_sem_seg",)
+DATALOADER:
+#  FILTER_EMPTY_ANNOTATIONS: True
+  NUM_WORKERS: 4
+CUDNN_BENCHMARK: True

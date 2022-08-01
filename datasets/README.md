@@ -114,3 +114,9 @@ python datasets/ade20k-full-frequency-split/prepare_ade20k_full_frequency_seen.p
 python datasets/ade20k-full-frequency-split/prepare_ade20k_full_frequency_unseen_val.py
 
 ```
+
+## Prepare data for PASCAL VOC:
+We follow the [CaGNet](https://github.com/bcmi/CaGNet-Zero-Shot-Semantic-Segmentation) to set up the training and testing data of PASCAL VOC.
+We also create a copy on the [google drive](https://drive.google.com/file/d/1RvtsdXC_CdeaONcDC3j7emxcwMMG019F/view?usp=sharing) for the convenience.
+
+### Expected data structure
