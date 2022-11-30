@@ -44,7 +44,7 @@ model_ts*.txt
 .idea
 .vscode
 _darcs
-
+.zip
 # project dirs
 /detectron2/model_zoo/configs
 #/datasets/*

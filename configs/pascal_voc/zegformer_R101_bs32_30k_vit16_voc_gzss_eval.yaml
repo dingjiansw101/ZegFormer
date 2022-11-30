@@ -1,0 +1,26 @@
+_BASE_: zegformer_R50_bs32_10k_vit16_voc.yaml
+MODEL:
+#  BACKBONE:
+#    NAME: "build_resnet_deeplab_backbone"
+  WEIGHTS: "R-101.pkl"
+  RESNETS:
+    DEPTH: 101
+    STEM_TYPE: "basic"  # not used
+    STEM_OUT_CHANNELS: 64
+    STRIDE_IN_1X1: False
+    OUT_FEATURES: ["res2", "res3", "res4", "res5"]
+    # NORM: "SyncBN"
+    RES5_MULTI_GRID: [1, 1, 1]  # not used
+  SEM_SEG_HEAD:
+    NUM_CLASSES: 20
+    CLIP_CLASSIFICATION: True
+    TRAIN_CLASS_JSON: "datasets/VOCZERO/seen_classnames.json"
+    TEST_CLASS_JSON: "datasets/VOCZERO/all_classnames.json"
+  MASK_FORMER:
+    GZERO_CALIBRATE: 0.1
+#    GZERO_CALIBRATE: 0.0
+    ENSEMBLING: True
+
+DATASETS:
+#  TRAIN: ("ade20k_full_sem_seg_train",)
+  TEST: ("pascal_voc_val_all_sem_seg",)

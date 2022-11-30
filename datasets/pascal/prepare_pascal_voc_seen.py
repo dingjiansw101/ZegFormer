@@ -6,7 +6,7 @@ import numpy as np
 import tqdm
 from PIL import Image
 import os
-# This also included the validation set
+# This code is for pascal voc, only has 10582 images for training
 from shutil import copyfile
 categories = [
               {"name": "aeroplane", "id": 1, "trainId": 0},
@@ -43,14 +43,27 @@ if __name__ == '__main__':
     for cat in categories_seen:
         id_map[cat["id"]] = cat["trainId"]
 
-    for name in ["val", "train"]:
-    # for name in ["val2017",]:
+    # read train_list from the npy file of spnet
+    train_list = np.load(r'datasets/voc12/split/train_list.npy')
+    train_list_basename = [os.path.splitext(os.path.basename(item))[0] for item in train_list]
 
+    val_list = np.load(r'datasets/voc12/split/test_list.npy')
+    val_list_basename = [os.path.splitext(os.path.basename(item))[0] for item in val_list]
+
+    for name in ["val", "train"]:
         annotation_dir = dataset_dir / "annotations" / name
         output_dir = dataset_dir / "annotations_detectron2" / f"{name}_seen"
         output_dir.mkdir(parents=True, exist_ok=True)
 
         for file in tqdm.tqdm(list(annotation_dir.iterdir())):
+            basename = os.path.splitext(file.name)[0]
+            if name == "train":
+                if basename not in train_list_basename:
+                    continue
+
+            if name == "val":
+                if basename not in val_list_basename:
+                    continue
 
             output_file = output_dir / file.name
             # convert(file, output_file)

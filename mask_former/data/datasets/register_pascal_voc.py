@@ -50,6 +50,27 @@ def _get_pascal_voc_seen_meta():
     }
     return ret
 
+# def register_pascal_voc_seen(root):
+#     root = os.path.join(root, "VOCZERO")
+#     meta = _get_pascal_voc_seen_meta()
+#     for name, image_dirname, sem_seg_dirname in [
+#         ("train", "images/train", "annotations_detectron2/train_seen"),
+#         ("test", "images/val", "annotations_detectron2/val_seen"),
+#     ]:
+#         image_dir = os.path.join(root, image_dirname)
+#         gt_dir = os.path.join(root, sem_seg_dirname)
+#         name = f"pascal_voc_{name}_seen_sem_seg"
+#         DatasetCatalog.register(
+#             name, lambda x=image_dir, y=gt_dir: load_sem_seg(y, x, gt_ext="png", image_ext="jpg")
+#         )
+#         MetadataCatalog.get(name).set(
+#             image_root=image_dir,
+#             sem_seg_root=gt_dir,
+#             evaluator_type="sem_seg",
+#             ignore_label=255,
+#             **meta,
+#         )
+
 def register_pascal_voc_seen(root):
     root = os.path.join(root, "VOCZERO")
     meta = _get_pascal_voc_seen_meta()
@@ -60,27 +81,6 @@ def register_pascal_voc_seen(root):
         image_dir = os.path.join(root, image_dirname)
         gt_dir = os.path.join(root, sem_seg_dirname)
         name = f"pascal_voc_{name}_seen_sem_seg"
-        DatasetCatalog.register(
-            name, lambda x=image_dir, y=gt_dir: load_sem_seg(y, x, gt_ext="png", image_ext="jpg")
-        )
-        MetadataCatalog.get(name).set(
-            image_root=image_dir,
-            sem_seg_root=gt_dir,
-            evaluator_type="sem_seg",
-            ignore_label=255,
-            **meta,
-        )
-
-def register_pascal_voc_seenv2(root):
-    root = os.path.join(root, "VOCZERO")
-    meta = _get_pascal_voc_seen_meta()
-    for name, image_dirname, sem_seg_dirname in [
-        ("train", "images_detectron2/train_seen", "annotations_detectron2_v2/train_seen"),
-        ("test", "images_detectron2/val_seen", "annotations_detectron2_v2/val_seen"),
-    ]:
-        image_dir = os.path.join(root, image_dirname)
-        gt_dir = os.path.join(root, sem_seg_dirname)
-        name = f"pascal_voc_{name}_seen_sem_segv2"
         DatasetCatalog.register(
             name, lambda x=image_dir, y=gt_dir: load_sem_seg(y, x, gt_ext="png", image_ext="jpg")
         )
@@ -178,4 +178,3 @@ _root = os.getenv("DETECTRON2_DATASETS", "datasets")
 register_pascal_voc_seen(_root)
 register_coco_stuff_val_unseen(_root)
 register_voc_stuff_val_all(_root)
-register_pascal_voc_seenv2(_root)

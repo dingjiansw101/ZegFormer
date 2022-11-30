@@ -14,8 +14,7 @@ MODEL:
     # NORM: "SyncBN"
     RES5_MULTI_GRID: [1, 1, 1]  # not used
 DATASETS:
-#  pascal_voc_{name}_seen_sem_segv2
-  TRAIN: ("pascal_voc_train_seen_sem_segv2",)
+  TRAIN: ("pascal_voc_train_seen_sem_seg",)
   TEST: ("pascal_voc_test_seen_sem_seg",)
 SOLVER:
   IMS_PER_BATCH: 32
@@ -57,6 +56,6 @@ TEST:
     FLIP: True
 DATALOADER:
   FILTER_EMPTY_ANNOTATIONS: True
-  NUM_WORKERS: 16
+  NUM_WORKERS: 4
 VERSION: 2
 CUDNN_BENCHMARK: True

@@ -120,3 +120,34 @@ We follow the [CaGNet](https://github.com/bcmi/CaGNet-Zero-Shot-Semantic-Segment
 We also create a copy on the [google drive](https://drive.google.com/file/d/1RvtsdXC_CdeaONcDC3j7emxcwMMG019F/view?usp=sharing) for the convenience.
 
 ### Expected data structure
+```
+VOCZERO/
+  images/
+    train/
+        2011_003261.jpg
+        ...
+    val/
+        2011_003145.jpg
+        ...
+  annotations/
+    train/
+        2011_003255.png
+        ...
+    val/
+        2011_003103.png
+        ...
+  all_classnames.json
+  seen_classnames.json
+  unseen_classnames.json
+  annotations_detectron2/
+    train_seen
+    
+```
+
+```
+python datasets/pascal/create_voc_class_names_json.py
+python datasets/pascal/prepare_pascal_voc_seen.py
+python datasets/pascal/prepare_pascal_voc_unseen_val.py
+python datasets/pascal/prepare_pascal_voc_val_all.py
+
+```

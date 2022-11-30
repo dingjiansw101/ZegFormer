@@ -1,4 +1,4 @@
-_BASE_: zegformer_R50_bs32_10k_vit16_voc2.yaml
+_BASE_: zegformer_R50_bs32_10k_vit16_voc.yaml
 MODEL:
   META_ARCHITECTURE: "MaskFormer"
   SEM_SEG_HEAD:

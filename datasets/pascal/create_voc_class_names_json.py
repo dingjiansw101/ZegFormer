@@ -29,19 +29,19 @@ categories_unseen = copy.deepcopy(categories[15:])
 for index, item in enumerate(categories_unseen):
     item["trainId"] = index
 
-with open(r'datasets/VOCZERO/all_categories.json', 'w') as f_out:
+with open(r'datasets/VOCZERO/all_classnames.json', 'w') as f_out:
     all_categories_json = []
     for cat in categories:
         all_categories_json.append(cat["name"])
     json.dump(all_categories_json, f_out)
 
-with open(r'datasets/VOCZERO/seen_categories.json', 'w') as f_out:
+with open(r'datasets/VOCZERO/seen_classnames.json', 'w') as f_out:
     seen_categories_json = []
     for cat in categories_seen:
         seen_categories_json.append(cat["name"])
     json.dump(seen_categories_json, f_out)
 
-with open(r'datasets/VOCZERO/unseen_categories.json', 'w') as f_out:
+with open(r'datasets/VOCZERO/unseen_classnames.json', 'w') as f_out:
     unseen_categories_json = []
     for cat in categories_unseen:
         unseen_categories_json.append(cat["name"])

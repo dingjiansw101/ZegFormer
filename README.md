@@ -49,6 +49,9 @@ If you want to inference with more classes, try the config `zegformer_R101_bs32_
 
 
 ### Training & Evaluation in Command Line
+To train models with R-101 backbone, download the pre-trained model
+ [R-101.pkl](https://dl.fbaipublicfiles.com/detectron2/ImageNetPretrained/MSRA/R-101.pkl), which is a converted copy of [MSRA's original ResNet-101](https://github.com/KaimingHe/deep-residual-networks) model.
+
 
 We provide two scripts in `train_net.py`, that are made to train all the configs provided in MaskFormer.
 
@@ -80,7 +83,8 @@ For more options, see `./train_net.py -h`.
 
 The pre-trained checkpoints of ZegFormer can be downloaded from https://drive.google.com/drive/folders/1qcIe2mE1VRU1apihsao4XvANJgU5lYgm?usp=sharing
 
-
+## Disclaimer
+Although the reported results on PASCAL VOC are trained with 10k iterations, the results at 10k are not stable. We recommend to train models with longer iterations.
 ## Acknowlegment
 This repo benefits from [CLIP](https://github.com/openai/CLIP) and [MaskFormer](https://github.com/facebookresearch/MaskFormer). Thanks for their wonderful works.
 
